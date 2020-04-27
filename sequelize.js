@@ -8,7 +8,7 @@ const controlNumberModel = require('./models/controlNumber');
 //cloud connect 
 const ho = 'us-cdbr-iron-east-01.cleardb.net'
 
-const sequelize = new Sequelize('ntdb', 'bb53c866eb5faf', 'ba8ce82d', {
+const sequelize = new Sequelize('heroku_f8a080c180a554a', 'bb53c866eb5faf', 'ba8ce82d', {
   host: ho,
   dialect: 'mysql',
 
