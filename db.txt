@@ -1,0 +1,10 @@
+
+
+
+heroku_f8a080c180a554a
+
+mysql://bb53c866eb5faf:ba8ce82d@us-cdbr-iron-east-01.cleardb.net/heroku_f8a080c180a554a?reconnect=true
+
+
+Username:	bb53c866eb5faf
+Password:	ba8ce82d (Reset)
