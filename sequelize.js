@@ -7,37 +7,37 @@ var fs = require('fs');
 var csv = require('csv');
 
 //cloud connect 
-// const ho = 'us-cdbr-iron-east-01.cleardb.net'
+const ho = 'us-cdbr-iron-east-01.cleardb.net'
 
-// const sequelize = new Sequelize('heroku_f8a080c180a554a', 'bb53c866eb5faf', 'ba8ce82d', {
-//   host: ho,
-//   dialect: 'mysql',
-
-//     pool: {
-//       max: 5,
-//       min: 0,
-//       acquire: 30000,
-//       idle: 10000
-//     },
-
-
-//   });
-
-  //local connect
-
-const sequelize = new Sequelize('ntdb', 'pmauser', 'password', {
-  host: 'localhost',
+const sequelize = new Sequelize('heroku_f8a080c180a554a', 'bb53c866eb5faf', 'ba8ce82d', {
+  host: ho,
   dialect: 'mysql',
 
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    },
 
 
   });
+
+  //local connect
+
+// const sequelize = new Sequelize('ntdb', 'pmauser', 'password', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   },
+
+
+//   });
 
 sequelize.authenticate()
 	  .then(() => {
