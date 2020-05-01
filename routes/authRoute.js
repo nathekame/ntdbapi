@@ -53,11 +53,12 @@ const loginPOST = async (req, res, next) =>{
 
                 if (!user) {
     
-                    // 404 not found
-                console.log('no user found');
-            //	res.json('no user found');
-                res.status(404).json({code:601, msg:'User Not found'});        // HTTP status 404: NotFound
-                        
+						// 404 not found
+					console.log('no user found');
+				//	res.json('no user found');
+					res.type("application/json")
+	 				return	res.status(200).json({msg:'User Not found'})
+							
 
                         
 
@@ -65,9 +66,11 @@ const loginPOST = async (req, res, next) =>{
 
                 if (!isValidPassword(user.password, password)) {
                 
-                    console.log('invalid password');
+                 //   console.log('invalid password');
                 //	res.json('invalid password');
-                    res.status(404).json({code:602, msg:'Password Mismatch'});        // HTTP status 404: NotFound
+					res.type("application/json")
+	 				return	res.status(200).json({msg:'Password Mismatch'});
+
                           
 
 
@@ -158,7 +161,7 @@ const loginPOST = async (req, res, next) =>{
 
 
         res.type('application/json');
-      return  res.status(200).json(newUserObj); 
+      return  res.status(201).json(newUserObj); 
 
 
     //return newUserObj
@@ -192,6 +195,9 @@ console.log("i got here for the register logic")
 
 	const checkControl = await controlNumberUtility.controlNumberCheck(controlNumber);
 
+	const checkControlDuplicate = await controlNumberUtility.CNDuplicateCheck(controlNumber);
+
+
 
 	if(checkControl === false){
 
@@ -200,6 +206,15 @@ console.log("i got here for the register logic")
 		res.type("application/json")
 	    return	res.status(200).json({msg:'Control Number Not Found'});
 
+	}
+
+	if (checkControlDuplicate === true) {
+
+		console.log("the control number has been used by another person ")
+
+		res.type("application/json")
+	    return	res.status(200).json({msg:'Control Number Has Been Used By Another User'});
+		
 	}
 
 	
@@ -251,7 +266,9 @@ console.log("i got here for the register logic")
 												
 												//return done(null, false);
 											//	res.json('user wasnt created');
-												res.status(501).json({code:604, msg:'Error Creating User'});   
+												res.type("application/json")
+	   											return	res.status(200).json({msg:'Error Creating User'});
+  
 
 											//	return false;
 											
