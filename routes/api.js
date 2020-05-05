@@ -14,7 +14,7 @@ const jwt  = require('jsonwebtoken');
 const multer  = require('multer');
 const config = require('../config/secret');
 
-//const stringify = require('json-stringify-safe');
+const stringify = require('json-stringify-safe');
 
 
 
@@ -57,7 +57,7 @@ const isAuthenticated = (req, res, next)=> {
 
 	const bearerHeader = req.headers['authorization'];
 
-//	console.log("this is the authorization token "+ stringify(bearerHeader));
+	console.log("this is the authorization token "+ stringify(bearerHeader));
 
 
 	if(typeof bearerHeader !== 'undefined'){
@@ -82,6 +82,8 @@ const isAuthenticated = (req, res, next)=> {
 
 
 			if (decoded){
+
+			//	console.log("it was verified "+JSON.stringify(decoded));
 				
 				//set the token
 						
@@ -112,7 +114,7 @@ const isAuthenticated = (req, res, next)=> {
 
 
 
-
+// isAuthenticated
 
 router.get('/',  authRoute.homeGET);
 

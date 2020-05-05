@@ -17,9 +17,10 @@ const _ = require('lodash');
 
 const homeGET = async (req, res, next) => {
 
-    console.log("i got here to host the local ");
+	console.log("i got here to host the local "+JSON.stringify(req.header));
+	const obj = { data: true };
     res.type('application/json');
-   return res.status(200); 
+    return  res.status(201).json(obj); 
 }
 
 const loginPOST = async (req, res, next) =>{
