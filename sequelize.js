@@ -103,7 +103,7 @@ input.pipe(parser).pipe(transform)
 
 
 
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
   .then(() => {
     console.log(`Database & tables created!`)
   })
